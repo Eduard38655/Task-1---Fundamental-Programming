@@ -1,0 +1,71 @@
+<!doctype html>
+<html lang="es">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Document</title>
+  </head>
+  <body>
+     <div id="pantalla"></div>
+    <script>
+      /*input 
+['n', 2, '&', 'a', 'l', 9, '$', 'q', 47, 'i', 'a', 'j', 'b', 'z', '%', 8]
+
+output
+[8, 'z', '&', 'b', 'j', 'a', '$', 'i', 47, 'q', 9, 'l', 'a', 2, '%', 'n']
+ 
+Write a function to reverse the elements of a given array while keeping 
+special characters in their original positions. The function should handle 
+dynamic changes in the array and special character positions. For example:*/
+
+      const cadena = [
+        "n",
+        2,
+        "&",
+        "a",
+        "l",
+        9,
+        "$",
+        "q",
+        47,
+        "i",
+        "a",
+        "j",
+        "b",
+        "z",
+        "%",
+        8,
+      ];
+
+      const ResultadoFinal = [];
+      let Box_Data = [];
+      let counter = 0;
+
+      /*Buscar los valores expeciales */
+      for (let i = 0; i < cadena.length; i++) {
+        if (cadena[i] != "$" && cadena[i] != "%" && cadena[i] != "&") {
+          Box_Data.push(cadena[i]);
+        }
+      }
+      /*Cambiar el orden de cada valor*/
+      const Box_Revertir = Box_Data.reverse();
+
+      /*Ingresar los r nuevos valores al ResultadoFinal, mediante un counter dirigido a la varible revertir */
+      for (let j = 0; j < cadena.length; j++) {
+        let indice = Box_Revertir[counter];
+
+        if (cadena[j] != "$" && cadena[j] != "%" && cadena[j] != "&") {
+          ResultadoFinal.push(indice);
+          counter++;
+        } else {
+          ResultadoFinal.push(cadena[j]);
+        }
+      }
+      console.log(ResultadoFinal);
+      
+      document.getElementById("pantalla").innerHTML ="Resultado del task: "+ ResultadoFinal;
+    </script>
+
+    
+  </body>
+</html>
